@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block main_content %}
-    <div id='search_box_wrapper'>
+    <div id='search_box_wrapper' style='display: inline-block'>
         <label for='search_box'></label>
         <input type='text' id='search_box' />
-        <div id='search_box_button'>Search</div>
+        <div id='search_box_button' style='display: inline-block'>Search</div>
     </div>
 
-    {% include 'search_data.html' %}
+    {% include 'data/search_data.html' %}
 {% endblock %}

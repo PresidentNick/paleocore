@@ -57,6 +57,8 @@ def project_data_display(request, project_name):
     fields = project.fields_to_display()
 
     if request.method == 'GET':
+
+
         # Populating a dictionary with key/values of the form "field: CHOICE_SET",
         # where CHOICE_SET is a tuple of tuples populated with all of the distinct
         # values of that field and the null option, which is seen as "Select:"
@@ -90,9 +92,9 @@ def project_data_display(request, project_name):
             # This is necessary because of our generalization. There is no way to call the fields of each specific piece
             # of data in the templates, because the fields vary. Therefore, that work must be done here.
             for item in query_set:
-                datum_attributes_lists.append([item[field] for field in fields])
+                datum_attributes_lists.append([getattr(item, field) for field in fields])
 
-            return render_to_response('data/project_data_display.html',
+            return render_to_response('data/search_data.html',
                                       {'datum_attributes_lists': datum_attributes_lists, 'fields': fields},
                                       RequestContext(request))
 
