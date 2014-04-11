@@ -7,5 +7,5 @@ urlpatterns = patterns('data.views',
                        url(r'^$', views.IndexView.as_view(), name='index'),
                        #/data/drp -- passes through to fibder
                        # ex. /data/search/turkana
-                       #url(r'^search/(?P<project_name>\w+)/$', 'project_data_display'),
+                       url(r'^search/(?P<project_name>\w+)/$', 'project_data_display'),
                        )
